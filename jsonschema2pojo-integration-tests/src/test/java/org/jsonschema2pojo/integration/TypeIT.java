@@ -177,6 +177,27 @@ public class TypeIT {
     }
 
     @Test
+    public void correctTypeIsChosenForMultipleType() throws NoSuchMethodException {
+        Method getterMethod = classWithManyTypes.getMethod("getMultipleTypeProperty");
+
+        assertThat(getterMethod.getReturnType().getName(), is("java.lang.Object"));
+    }
+
+    @Test
+    public void correctTypeIsChosenForMultipleType2() throws NoSuchMethodException {
+        Method getterMethod = classWithManyTypes.getMethod("getMultipleTypeProperty2");
+
+        assertThat(getterMethod.getReturnType().getName(), is("java.lang.Object"));
+    }
+
+    @Test
+    public void correctTypeIsChosenForNullableMultipleType() throws NoSuchMethodException {
+        Method getterMethod = classWithManyTypes.getMethod("getNullableMultipleTypeProperty");
+
+        assertThat(getterMethod.getReturnType().getName(), is("java.lang.Object"));
+    }
+
+    @Test
     public void javaTypeCanBeUsedForAnyShemaType() throws NoSuchMethodException {
 
         assertThat(classWithManyTypes.getMethod("getIntegerWithJavaType").getReturnType().getName(), is("java.math.BigDecimal"));

@@ -100,4 +100,14 @@ public class RequiredIT {
 
     }
 
+    @Test
+    public void nullableRequiredFieldIsNotAnnotatedNotNull() {
+        JavaField javaField = classWithRequired.getFieldByName("requiredNullableProperty");
+        String javaDocComment = javaField.getComment();
+
+        assertThat(javaDocComment, not(containsString("(Required)")));
+
+
+    }
+
 }

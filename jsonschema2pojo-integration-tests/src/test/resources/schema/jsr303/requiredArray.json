@@ -1,0 +1,15 @@
+{
+  "type" : "object",
+  "properties" : {
+    "required" : {
+      "type" : "string",
+    },
+    "requiredNullable" : {
+      "type" : ["string","null"],
+    },
+    "notRequired" : {
+      "type": "string",
+    }
+  },
+  "required": ["required", "requiredNullable"]
+}

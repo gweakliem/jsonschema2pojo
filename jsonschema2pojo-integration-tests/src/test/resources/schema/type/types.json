@@ -93,6 +93,15 @@
         },
         "nullableStringProperty" : {
           "type" : ["null", "string"]
+        },
+        "multipleTypeProperty": {
+            "type": ["string","integer"]
+        },
+        "multipleTypeProperty2": {
+            "type": ["number","boolean"]
+        },
+        "nullableMultipleTypeProperty": {
+            "type": ["string","integer","null"]
         }
     }
 }

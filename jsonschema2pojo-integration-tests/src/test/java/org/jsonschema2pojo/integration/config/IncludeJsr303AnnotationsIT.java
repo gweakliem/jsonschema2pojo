@@ -189,6 +189,24 @@ public class IncludeJsr303AnnotationsIT {
     }
 
     @Test
+    public void jsr303NotNullValidationIsNotAddedForSchemaRuleRequiredNullable() throws ClassNotFoundException {
+
+        ClassLoader resultsClassLoader = schemaRule.generateAndCompile("/schema/jsr303/requiredNullable.json", "com.example",
+                config("includeJsr303Annotations", true));
+
+        Class generatedType = resultsClassLoader.loadClass("com.example.RequiredNullable");
+
+        Object validInstance = createInstanceWithPropertyValue(generatedType, "requiredNullable", "abc");
+
+        assertNumberOfConstraintViolationsOn(validInstance, is(0));
+
+        Object invalidInstance = createInstanceWithPropertyValue(generatedType, "requiredNullable", null);
+
+        assertNumberOfConstraintViolationsOn(invalidInstance, is(0));
+
+    }
+
+    @Test
     public void jsr303SizeValidationIsAddedForSchemaRuleMinLength() throws ClassNotFoundException {
 
         ClassLoader resultsClassLoader = schemaRule.generateAndCompile("/schema/jsr303/minLength.json", "com.example",

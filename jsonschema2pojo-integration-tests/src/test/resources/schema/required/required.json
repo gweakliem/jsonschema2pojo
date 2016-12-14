@@ -11,6 +11,10 @@
         },
         "defaultNotRequiredProperty" : {
             "type" : "string"
+        },
+        "requiredNullableProperty" : {
+            "type" : ["string","null"],
+            "required" : true
         }
     }
 }

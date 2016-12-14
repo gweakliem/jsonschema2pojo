@@ -1,0 +1,9 @@
+{
+  "type" : "object",
+  "properties" : {
+    "requiredNullable" : {
+      "type" : ["string","null"],
+      "required" : true
+    }
+  }
+}
